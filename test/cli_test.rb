@@ -1,7 +1,7 @@
 require "test_helper"
 require File.expand_path("../../lib/enom/cli",   __FILE__)
 
-class CliTest < Test::Unit::TestCase
+class CliTest < MiniTest::Unit::TestCase
 
   context "The CLI command" do
     setup do

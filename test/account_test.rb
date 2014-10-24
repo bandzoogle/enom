@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AccountTest < Test::Unit::TestCase
+class AccountTest < MiniTest::Unit::TestCase
 
   context "An authorized account" do
     setup do

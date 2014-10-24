@@ -1,11 +1,12 @@
 require "rubygems"
-require "test/unit"
+#require "test/unit"
 require "shoulda"
 require "fakeweb"
+require 'minitest/autorun'
 
 require File.expand_path("../../lib/enom",   __FILE__)
 
-class Test::Unit::TestCase
+class MiniTest::Unit::TestCase
 
   FakeWeb.allow_net_connect = false
 
@@ -13,6 +14,34 @@ class Test::Unit::TestCase
     {
       :command => "Purchase (Success)",
       :request => "https://reseller.enom.com/interface.asp?Command=Purchase&SLD=test123456test123456&TLD=com&UseDNS=default&UID=resellid&PW=resellpw&ResponseType=xml",
+      :response => <<-EOF
+        <?xml version="1.0"?>
+        <interface-response>
+          <OrderID>157609741</OrderID>
+          <TotalCharged>15</TotalCharged>
+          <RegistrantPartyID>{CF869235-0083-4BB0-99DF-DCEAC6F2294E}</RegistrantPartyID>
+          <RRPCode>200</RRPCode>
+          <RRPText>Command completed successfully - 157609741</RRPText>
+          <Command>PURCHASE</Command>
+          <Language>eng</Language>
+          <ErrCount>0</ErrCount>
+          <ResponseCount>0</ResponseCount>
+          <MinPeriod>1</MinPeriod>
+          <MaxPeriod>10</MaxPeriod>
+          <Server>RESELLERTEST</Server>
+          <Site>eNom</Site>
+          <IsLockable>True</IsLockable>
+          <IsRealTimeTLD>True</IsRealTimeTLD>
+          <TimeDifference>+08.00</TimeDifference>
+          <ExecTime>2.938</ExecTime>
+          <Done>true</Done>
+          <debug><![CDATA[]]></debug>
+        </interface-response>
+      EOF
+    },
+    {
+      :command => "Purchase .rocks (Success)",
+      :request => "https://reseller.enom.com/interface.asp?Command=Purchase&SLD=test123456test123456&TLD=rocks&UseDNS=default&UID=resellid&PW=resellpw&ResponseType=xml",
       :response => <<-EOF
         <?xml version="1.0"?>
         <interface-response>
@@ -237,6 +266,113 @@ class Test::Unit::TestCase
         <interface-response>
           <GetDomainInfo>
             <domainname sld="test123456test123456" tld="com" domainnameid="340724808">test123456test123456.com</domainname>
+            <multy-langSLD>
+        </multy-langSLD>
+            <status>
+              <expiration>1/30/2012 5:23:00 PM</expiration>
+              <escrowliftdate/>
+              <escrowhold/>
+              <deletebydate>1/30/2012 5:23:00 PM</deletebydate>
+              <deletetype/>
+              <registrar>eNom, Inc.</registrar>
+              <registrationstatus>Registered</registrationstatus>
+              <purchase-status>Paid</purchase-status>
+              <belongs-to party-id="{CF869235-0083-4BB0-99DF-DCEAC6F2294E}">resellid</belongs-to>
+            </status>
+            <ParkingEnabled>False</ParkingEnabled>
+            <services>
+              <entry name="dnsserver">
+                <enomDNS value="YES" isDotName="NO"/>
+                <service changable="1">1006</service>
+                <configuration changable="0" type="dns">
+                  <dns>dns1.name-services.com</dns>
+                  <dns>dns2.name-services.com</dns>
+                  <dns>dns3.name-services.com</dns>
+                  <dns>dns4.name-services.com</dns>
+                  <dns>dns5.name-services.com</dns>
+                </configuration>
+              </entry>
+              <entry name="dnssettings">
+                <service changable="0">1021</service>
+                <configuration changable="1" type="host">
+                  <host>
+                    <name><![CDATA[*]]></name>
+                    <type><![CDATA[A]]></type>
+                    <address><![CDATA[69.25.142.5]]></address>
+                    <mxpref><![CDATA[10]]></mxpref>
+                    <iseditable><![CDATA[1]]></iseditable>
+                  </host>
+                  <host>
+                    <name><![CDATA[@]]></name>
+                    <type><![CDATA[A]]></type>
+                    <address><![CDATA[69.25.142.5]]></address>
+                    <mxpref><![CDATA[10]]></mxpref>
+                    <iseditable><![CDATA[1]]></iseditable>
+                  </host>
+                  <host>
+                    <name><![CDATA[www]]></name>
+                    <type><![CDATA[A]]></type>
+                    <address><![CDATA[69.25.142.5]]></address>
+                    <mxpref><![CDATA[10]]></mxpref>
+                    <iseditable><![CDATA[1]]></iseditable>
+                  </host>
+                </configuration>
+              </entry>
+              <entry name="wsb">
+                <service changable="1">1060</service>
+              </entry>
+              <entry name="emailset">
+                <service changable="1">1048</service>
+              </entry>
+              <entry name="wpps">
+                <service changable="1">1123</service>
+              </entry>
+              <entry name="wbl">
+                <wbl>
+                  <statusid><![CDATA[0]]></statusid>
+                  <statusdescr><![CDATA[Available]]></statusdescr>
+                </wbl>
+              </entry>
+              <entry name="mobilizer">
+                <service changable="0">1117</service>
+                <mobilizer/>
+              </entry>
+              <entry name="parking">
+                <service changable="1">1033</service>
+              </entry>
+              <entry name="messaging">
+                <service changable="1">1087</service>
+              </entry>
+              <entry name="map">
+                <service changable="1">1108</service>
+              </entry>
+            </services>
+          </GetDomainInfo>
+          <Command>GETDOMAININFO</Command>
+          <Language>eng</Language>
+          <ErrCount>0</ErrCount>
+          <ResponseCount>0</ResponseCount>
+          <MinPeriod>1</MinPeriod>
+          <MaxPeriod>10</MaxPeriod>
+          <Server>RESELLERTEST</Server>
+          <Site>eNom</Site>
+          <IsLockable>True</IsLockable>
+          <IsRealTimeTLD>True</IsRealTimeTLD>
+          <TimeDifference>+08.00</TimeDifference>
+          <ExecTime>0.344</ExecTime>
+          <Done>true</Done>
+          <debug><![CDATA[]]></debug>
+        </interface-response>
+      EOF
+    },
+    {
+      :command => "GetDomainInfo .rocks (Success)",
+      :request => "https://reseller.enom.com/interface.asp?Command=GetDomainInfo&SLD=test123456test123456&TLD=rocks&UID=resellid&PW=resellpw&ResponseType=xml",
+      :response => <<-EOF
+        <?xml version="1.0"?>
+        <interface-response>
+          <GetDomainInfo>
+            <domainname sld="test123456test123456" tld="rocks" domainnameid="340724808">test123456test123456.rocks</domainname>
             <multy-langSLD>
         </multy-langSLD>
             <status>

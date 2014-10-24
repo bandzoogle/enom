@@ -1,6 +1,6 @@
 require "test_helper"
 
-class DomainTest < Test::Unit::TestCase
+class DomainTest < MiniTest::Unit::TestCase
 
   context "With a valid account" do
     setup do
@@ -123,6 +123,16 @@ class DomainTest < Test::Unit::TestCase
       should "register the domain and return a domain object" do
         assert_kind_of Enom::Domain, @domain
         assert_equal @domain.name, "test123456test123456.com"
+      end
+    end
+
+    context "registering a .rocks domain" do
+      setup do
+        @domain = Enom::Domain.register!("test123456test123456.rocks")
+      end
+      should "register the domain and return a domain object" do
+        assert_kind_of Enom::Domain, @domain
+        assert_equal @domain.name, "test123456test123456.rocks"
       end
     end
 
