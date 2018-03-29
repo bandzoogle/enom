@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ContactInfoTest < MiniTest::Unit::TestCase
+class ContactInfoTest < Minitest::Test
 
   context "A domain in your account" do
     setup do

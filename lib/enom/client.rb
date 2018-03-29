@@ -1,8 +1,8 @@
 module Enom
+  require 'net/https'
+  require 'multi_xml'
 
   class Client
-    include HTTParty
-
     class << self
       attr_accessor :username, :password, :test
       alias_method :test?, :test
@@ -24,9 +24,20 @@ module Enom
       # or other helpful statuses -- everything comes back as a 200.
       def request(params = {})
         params.merge!(default_params)
-        response = get(base_uri, :query => params)
-        case response.code
+
+        uri = URI.parse(base_uri)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+
+        encoded = URI.encode_www_form(params)
+        path = [uri.path, encoded].join("?")
+
+        request = Net::HTTP::Get.new(path)
+        response = http.request(request) 
+
+        case response.code.to_i
         when 200
+          response = MultiXml.parse(response.body)
           if response["interface_response"]["ErrCount"] == "0"
             return response
           else
@@ -34,6 +45,11 @@ module Enom
           end
         end
       end
+
+      def get(params={})
+        request(params)
+      end
+
     end
   end
 end

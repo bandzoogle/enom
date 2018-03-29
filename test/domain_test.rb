@@ -1,6 +1,6 @@
 require "test_helper"
 
-class DomainTest < MiniTest::Unit::TestCase
+class DomainTest < Minitest::Test
 
   context "With a valid account" do
     setup do

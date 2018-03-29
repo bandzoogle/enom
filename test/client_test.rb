@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ClientTest < MiniTest::Unit::TestCase
+class ClientTest < Minitest::Test
 
   context "A test connection" do
     setup do

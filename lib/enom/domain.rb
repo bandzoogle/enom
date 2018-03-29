@@ -3,7 +3,6 @@ require "public_suffix"
 module Enom
 
   class Domain
-    include HTTParty
     include ContactInfo
 
     # The domain name on Enom
