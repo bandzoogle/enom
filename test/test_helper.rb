@@ -6,7 +6,7 @@ require 'minitest/autorun'
 
 require File.expand_path("../../lib/enom",   __FILE__)
 
-class MiniTest::Unit::TestCase
+class Minitest::Test
 
   FakeWeb.allow_net_connect = false
 
@@ -153,7 +153,7 @@ class MiniTest::Unit::TestCase
     },
     {
       :command => "Check Many with default (*) TLD list (Success)",
-      :request => "https://reseller.enom.com/interface.asp?Command=Check&SLD=test123456test123456&TLD=*&TLDList=&UID=resellid&PW=resellpw&ResponseType=xml",
+      :request => "https://reseller.enom.com/interface.asp?Command=Check&SLD=test123456test123456&TLD=*&TLDList&UID=resellid&PW=resellpw&ResponseType=xml",
       :response => <<-EOF
         <?xml version="1.0"?>
         <interface-response>
