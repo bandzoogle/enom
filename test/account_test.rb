@@ -1,16 +1,13 @@
 require "test_helper"
 
-class AccountTest < Minitest::Test
+class TestAccount < Minitest::Test
+  def setup
+    Enom::Client.username = "resellid"
+    Enom::Client.password = "resellpw"
+    Enom::Client.test = false
+  end
 
-  context "An authorized account" do
-    setup do
-      Enom::Client.username = "resellid"
-      Enom::Client.password = "resellpw"
-      Enom::Client.test = false
-    end
-
-    should "return the available account balance" do
-      assert_equal 3669.40, Enom::Account.balance
-    end
+  def test_should_return_account_balance
+    assert_equal 3669.40, Enom::Account.balance
   end
 end

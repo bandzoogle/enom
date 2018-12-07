@@ -1,15 +1,14 @@
 require "test_helper"
 
-class ClientTest < Minitest::Test
-
+describe Enom::Client do
   context "A test connection" do
-    setup do
+    before do
       Enom::Client.username = "resellidtest"
       Enom::Client.password = "resellpwtest"
       Enom::Client.test = true
     end
 
-    should "return a test Enom::Client object" do
+    it "should return a test Enom::Client object" do
       assert_equal "resellidtest", Enom::Client.username
       assert_equal "resellpwtest", Enom::Client.password
       assert_equal "https://resellertest.enom.com/interface.asp", Enom::Client.base_uri
@@ -18,12 +17,13 @@ class ClientTest < Minitest::Test
   end
 
   context "A live connection" do
-    setup do
+    before do
       Enom::Client.username = "resellid"
       Enom::Client.password = "resellpw"
+      Enom::Client.test = false
     end
 
-    should "return a real Enom::Client object" do
+    it "should return a real Enom::Client object" do
       assert_equal "resellid", Enom::Client.username
       assert_equal "resellpw", Enom::Client.password
       assert_equal "https://reseller.enom.com/interface.asp", Enom::Client.base_uri

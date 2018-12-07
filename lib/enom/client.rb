@@ -38,7 +38,7 @@ module Enom
         case response.code.to_i
         when 200
           response = MultiXml.parse(response.body)
-          if response["interface_response"]["ErrCount"] == "0"
+          if response["interface_response"]["ErrCount"].to_i == 0
             return response
           else
             raise InterfaceError, response["interface_response"]["errors"].values.join(", ")

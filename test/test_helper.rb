@@ -3,6 +3,7 @@ require "rubygems"
 require "shoulda"
 require "fakeweb"
 require 'minitest/autorun'
+require "minitest-spec-context"
 
 require File.expand_path("../../lib/enom",   __FILE__)
 
