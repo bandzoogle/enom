@@ -60,19 +60,18 @@ module Enom
         # Fetch the new contact info and return it
         send("#{contact_type.downcase}_contact_info")
       end
+    end
 
-      def all_contact_info
-        Client.request("Command" => "GetContacts", "SLD" => sld, "TLD" => tld)["interface_response"]["GetContacts"].select{|k| CONTACT_TYPES.include?(k)}
+    def all_contact_info
+      Client.request("Command" => "GetContacts", "SLD" => sld, "TLD" => tld)["interface_response"]["GetContacts"].select{|k| CONTACT_TYPES.include?(k)}
+    end
+
+    # Update all contact types with the same data
+    # Performs a separate API call for each type
+    def update_all_contact_info(data = {})
+      CONTACT_TYPES.each do |contact_type|
+        send("update_#{contact_type.downcase}_contact_info", data)
       end
-
-      # Update all contact types with the same data
-      # Performs a separate API call for each type
-      def update_all_contact_info(data = {})
-        CONTACT_TYPES.each do |contact_type|
-          send("update_#{contact_type.downcase}_contact_info", data)
-        end
-      end
-
     end
 
   end
