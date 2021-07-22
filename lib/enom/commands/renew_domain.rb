@@ -5,7 +5,6 @@ module Enom
         name = args.shift
         domain = Domain.renew!(name)
         output = "Renewed #{domain.name}"
-        puts output
         return output
       end
     end

@@ -5,7 +5,6 @@ module Enom
         name = args.shift
         domain = Domain.register!(name)
         output = "Registered #{domain.name}"
-        puts output
         return output
       end
     end

@@ -4,8 +4,9 @@ module Enom
 
   class Client
     class << self
-      attr_accessor :username, :password, :test
+      attr_accessor :username, :password, :test, :debug
       alias_method :test?, :test
+      alias_method :debug?, :debug
 
       # All requests must contain the UID, PW, and ResponseType query parameters
       def default_params
@@ -33,10 +34,15 @@ module Enom
         path = [uri.path, encoded].join("?")
 
         request = Net::HTTP::Get.new(path)
+
+        STDERR.puts path if debug?
+
         response = http.request(request) 
 
         case response.code.to_i
         when 200
+          STDERR.puts response.body if debug?
+
           response = MultiXml.parse(response.body)
           if response["interface_response"]["ErrCount"].to_i == 0
             return response

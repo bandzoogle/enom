@@ -153,6 +153,194 @@ class Minitest::Test
       EOF
     },
     {
+      :command => "Check V2 (unavailable)",
+      :request => "https://reseller.enom.com/interface.asp?Command=Check&Version=2&IncludePrice=1&IncludeProperties=1&IncludeEAP=1&SLD=google&TLD=com&UID=resellid&PW=resellpw&ResponseType=xml",
+      :response => <<-EOF
+        <?xml version="1.0"?>
+        <interface-response>
+          <Domains>
+            <Domain>
+              <Name>jerkvision.com</Name>
+              <RRPCode>211</RRPCode>
+              <RRPText>Domain not available</RRPText>
+              <IsPremium>False</IsPremium>
+              <IsPlatinum>False</IsPlatinum>
+              <IsEAP>False</IsEAP>
+              <Prices>
+                <Currency nil="true"/>
+                <Registration>9.00</Registration>
+                <Renewal>9.00</Renewal>
+                <Restore>80.00</Restore>
+                <Transfer>9.00</Transfer>
+                <ExpectedCustomerSuppliedPrice nil="true"/>
+              </Prices>
+              <Properties>
+                <NativeSLD nil="true"/>
+                <MinRegYear>1</MinRegYear>
+                <MaxRegYear>10</MaxRegYear>
+                <AbleToLock>True</AbleToLock>
+                <ExtAttributes>False</ExtAttributes>
+                <Transferable>True</Transferable>
+                <AllowWPPS>True</AllowWPPS>
+                <TrademarkStart>
+                  <UTC></UTC>
+                  <Epoch></Epoch>
+                </TrademarkStart>
+                <TrademarkEnd>
+                  <UTC></UTC>
+                  <Epoch></Epoch>
+                </TrademarkEnd>
+              </Properties>
+              <EAP nil="true"/>
+            </Domain>
+          </Domains>
+          <Command>CHECK</Command>
+          <APIType>API.NET</APIType>
+          <Language>eng</Language>
+          <ErrCount>0</ErrCount>
+          <ResponseCount>0</ResponseCount>
+          <MinPeriod>1</MinPeriod>
+          <MaxPeriod>10</MaxPeriod>
+          <Server>sjl0vwapi15</Server>
+          <Site>eNom</Site>
+          <IsLockable nil="true"/>
+          <IsRealTimeTLD nil="true"/>
+          <TimeDifference>+0.00</TimeDifference>
+          <ExecTime>0.216</ExecTime>
+          <Done>true</Done>
+          <TrackingKey>693f0b5d-d37f-44ae-adb9-f3d8afa3ce63</TrackingKey>
+          <RequestDateTime>7/22/2021 7:35:22 AM</RequestDateTime>
+          <debug nil="true"/>
+        </interface-response>
+      EOF
+    },
+    {
+      :command => "Check V2 (Available)",
+      :request => "https://reseller.enom.com/interface.asp?Command=Check&Version=2&IncludePrice=1&IncludeProperties=1&IncludeEAP=1&SLD=test123456test123456&TLD=com&UID=resellid&PW=resellpw&ResponseType=xml",
+      :response => <<-EOF
+        <?xml version="1.0"?>
+        <interface-response>
+          <Domains>
+            <Domain>
+              <Name>jerkvis1on.com</Name>
+              <RRPCode>210</RRPCode>
+              <RRPText>Domain available</RRPText>
+              <IsPremium>False</IsPremium>
+              <IsPlatinum>False</IsPlatinum>
+              <IsEAP>False</IsEAP>
+              <Prices>
+                <Currency nil="true"/>
+                <Registration>9.00</Registration>
+                <Renewal>9.00</Renewal>
+                <Restore>80.00</Restore>
+                <Transfer>9.00</Transfer>
+                <ExpectedCustomerSuppliedPrice nil="true"/>
+              </Prices>
+              <Properties>
+                <NativeSLD nil="true"/>
+                <MinRegYear>1</MinRegYear>
+                <MaxRegYear>10</MaxRegYear>
+                <AbleToLock>True</AbleToLock>
+                <ExtAttributes>False</ExtAttributes>
+                <Transferable>True</Transferable>
+                <AllowWPPS>True</AllowWPPS>
+                <TrademarkStart>
+                  <UTC></UTC>
+                  <Epoch></Epoch>
+                </TrademarkStart>
+                <TrademarkEnd>
+                  <UTC></UTC>
+                  <Epoch></Epoch>
+                </TrademarkEnd>
+              </Properties>
+              <EAP nil="true"/>
+            </Domain>
+          </Domains>
+          <Command>CHECK</Command>
+          <APIType>API.NET</APIType>
+          <Language>eng</Language>
+          <ErrCount>0</ErrCount>
+          <ResponseCount>0</ResponseCount>
+          <MinPeriod>1</MinPeriod>
+          <MaxPeriod>10</MaxPeriod>
+          <Server>sjl0vwapi07</Server>
+          <Site>eNom</Site>
+          <IsLockable nil="true"/>
+          <IsRealTimeTLD nil="true"/>
+          <TimeDifference>+0.00</TimeDifference>
+          <ExecTime>0.207</ExecTime>
+          <Done>true</Done>
+          <TrackingKey>f17215fa-9177-4c26-a449-8b4334154042</TrackingKey>
+          <RequestDateTime>7/22/2021 7:33:01 AM</RequestDateTime>
+          <debug nil="true"/>
+        </interface-response>
+      EOF
+    },
+    {
+      :command => "Check V2 (Premium)",
+      :request => "https://reseller.enom.com/interface.asp?Command=Check&Version=2&IncludePrice=1&IncludeProperties=1&IncludeEAP=1&SLD=foo&TLD=store&UID=resellid&PW=resellpw&ResponseType=xml",
+      :response => <<-EOF
+        <?xml version="1.0"?>
+        <interface-response>
+          <Domains>
+            <Domain>
+              <Name>foo.store</Name>
+              <RRPCode>210</RRPCode>
+              <RRPText>Domain available</RRPText>
+              <IsPremium>True</IsPremium>
+              <IsPlatinum>False</IsPlatinum>
+              <IsEAP>False</IsEAP>
+              <Prices>
+                <Currency>USD</Currency>
+                <Registration>1150.00</Registration>
+                <Renewal>1150.00</Renewal>
+                <Restore>288.00</Restore>
+                <Transfer>1150.00</Transfer>
+                <ExpectedCustomerSuppliedPrice>1150.00</ExpectedCustomerSuppliedPrice>
+              </Prices>
+              <Properties>
+                <NativeSLD nil="true"/>
+                <MinRegYear>1</MinRegYear>
+                <MaxRegYear>10</MaxRegYear>
+                <AbleToLock>True</AbleToLock>
+                <ExtAttributes>False</ExtAttributes>
+                <Transferable>True</Transferable>
+                <AllowWPPS>True</AllowWPPS>
+                <TrademarkStart>
+                  <__content__>6/7/2016 9:00:00 AM</__content__>
+                  <UTC>2016-06-07T16:00:00Z</UTC>
+                  <Epoch>1465290000</Epoch>
+                </TrademarkStart>
+                <TrademarkEnd>
+                  <__content__>9/5/2016 9:00:00 AM</__content__>
+                  <UTC>2016-09-05T16:00:00Z</UTC>
+                  <Epoch>1473066000</Epoch>
+                </TrademarkEnd>
+              </Properties>
+              <EAP nil="true"/>
+            </Domain>
+          </Domains>
+          <Command>CHECK</Command>
+          <APIType>API.NET</APIType>
+          <Language>eng</Language>
+          <ErrCount>0</ErrCount>
+          <ResponseCount>0</ResponseCount>
+          <MinPeriod>1</MinPeriod>
+          <MaxPeriod>10</MaxPeriod>
+          <Server>sjl0vwapi13</Server>
+          <Site>eNom</Site>
+          <IsLockable nil="true"/>
+          <IsRealTimeTLD nil="true"/>
+          <TimeDifference>+0.00</TimeDifference>
+          <ExecTime>1.737</ExecTime>
+          <Done>true</Done>
+          <TrackingKey>eca6ddc1-3ac9-46bb-8297-e487de32a319</TrackingKey>
+          <RequestDateTime>7/22/2021 7:52:22 AM</RequestDateTime>
+          <debug nil="true"/>
+        </interface-response>
+      EOF
+    },
+    {
       :command => "Check Many with default (*) TLD list (Success)",
       :request => "https://reseller.enom.com/interface.asp?Command=Check&SLD=test123456test123456&TLD=*&TLDList&UID=resellid&PW=resellpw&ResponseType=xml",
       :response => <<-EOF
