@@ -56,6 +56,26 @@ module Enom
       @response == "210"
     end
 
+    def self.check_details(name)
+      sld, tld = parse_sld_and_tld(name)
+      @response = Client.request(
+        "Command" => "Check",
+        "Version" => 2,
+        "IncludePrice" => 1,
+        "IncludeProperties" => 1,
+        "IncludeEAP" => 1,
+        "SLD" => sld,
+        "TLD" => tld)["interface_response"]['Domains']['Domain']
+
+      @response.each do |key, value|
+        @response[key] = true if @response[key] == 'True'
+        @response[key] = false if @response[key] == 'False'
+      end
+      
+      @response['available'] = @response["RRPText"] == "Domain available"
+      @response
+    end
+
     # Determine if a list of domains are available for purchase
     # Returns an array of available domain names given
 

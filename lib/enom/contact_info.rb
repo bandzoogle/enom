@@ -73,6 +73,5 @@ module Enom
         send("update_#{contact_type.downcase}_contact_info", data)
       end
     end
-
   end
 end

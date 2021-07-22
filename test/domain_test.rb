@@ -1,6 +1,5 @@
 require "test_helper"
 
-#class DomainTest < Minitest::Test
 describe Enom::Domain do
   context "With a valid account" do
     before do
@@ -23,7 +22,7 @@ describe Enom::Domain do
       end
     end
 
-    context "checking for available domains" do
+    context "available?" do
       it "should return 'available' for an available domain" do
         assert_equal "available", Enom::Domain.check("test123456test123456.com")
         assert Enom::Domain.available?("test123456test123456.com")
@@ -31,6 +30,24 @@ describe Enom::Domain do
       it "should return 'unavailable' for an unavailable domain" do
         assert_equal "unavailable", Enom::Domain.check("google.com")
         assert !Enom::Domain.available?("google.com")
+      end
+    end
+
+    context "check_details" do
+      it "should return data for available domain" do
+        result = Enom::Domain.check_details("test123456test123456.com")
+        assert_equal true, result['available']
+        assert_equal false, result['IsPremium']
+      end
+      it "should return 'unavailable' for an unavailable domain" do
+        result = Enom::Domain.check_details("google.com")
+        assert_equal false, result['available']
+        assert_equal false, result['IsPremium']
+      end
+      it "should return premium data for premium domain" do
+        result = Enom::Domain.check_details("foo.store")
+        assert_equal true, result['available']
+        assert_equal true, result['IsPremium']
       end
     end
 
