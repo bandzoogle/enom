@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/bensie/enom"
   s.email = "bensie@gmail.com"
   s.files  = %w( README.md Rakefile LICENSE ) + ["lib/enom.rb"] + Dir.glob("lib/enom/*.rb") + Dir.glob("lib/enom/commands/*.rb") + Dir.glob("test/**/*") + Dir.glob("bin/*")
-  s.add_dependency "public_suffix", '~> 4.0.6'
+  s.add_dependency "public_suffix", '~> 5.0.0'
   s.add_dependency 'multi_xml'
   s.add_development_dependency "minitest", "~> 5.14.0"
   s.add_development_dependency "minitest-spec-context"
