@@ -4,7 +4,7 @@ class TestAccount < Minitest::Test
   def setup
     Enom::Client.username = 'resellid'
     Enom::Client.password = 'resellpw'
-    Enom::Client.test = ENV['ENOM_TEST'] == 'true'
+    Enom::Client.test = true
   end
 
   def test_should_return_account_balance

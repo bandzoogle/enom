@@ -5,7 +5,7 @@ describe Enom::Domain do
     before do
       Enom::Client.username = 'resellid'
       Enom::Client.password = 'resellpw'
-      Enom::Client.test = ENV['ENOM_TEST'] == 'true'
+      Enom::Client.test = true
     end
 
     context 'listing all domains' do

@@ -5,7 +5,7 @@ class CliTest < Minitest::Test
   def setup
     Enom::Client.username = 'resellid'
     Enom::Client.password = 'resellpw'
-    Enom::Client.test = ENV['ENOM_TEST'] == 'true'
+    Enom::Client.test = true
     @cli = Enom::CLI.new
   end
 
