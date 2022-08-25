@@ -1,11 +1,13 @@
-require "test_helper"
+require 'test_helper'
 
 class ContactInfoTest < Minitest::Test
   def setup
-    Enom::Client.username = "resellid"
-    Enom::Client.password = "resellpw"
-    Enom::Client.test = false
-    @domain = Enom::Domain.find("test123456test123456.com")
+    Enom::Client.username = 'resellid'
+    Enom::Client.password = 'resellpw'
+    Enom::Client.test = ENV['ENOM_TEST'] == 'true'
+    VCR.use_cassette(__method__) do
+      @domain = Enom::Domain.find('test123456test123456.com')
+    end
   end
 
   def test_respond_to_contact_methods

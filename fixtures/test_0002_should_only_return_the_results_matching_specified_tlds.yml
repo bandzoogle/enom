@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=namespinner&MaxResults=8&PW=resellpw&ResponseType=xml&SLD=hand&Similar=High&TLD=com&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Set-Cookie:
+      - ASP.NET_SessionId=bdej4uijgnfzijuvukb44t1c; path=/; HttpOnly; SameSite=Lax
+      Machinename:
+      - BRA2VWRESTEST02
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 17:03:24 GMT
+      Content-Length:
+      - '1649'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<namespin>\r\n<spincount
+        >8</spincount >\r\n<TLDList >com,net,tv,cc</TLDList >\r\n<domains><domain
+        name=\"ShopHand\" com=\"n\" comscore=\"0\" net=\"y\" netscore=\"1000\" tv=\"n\"
+        tvscore=\"0\" cc=\"n\" ccscore=\"0\" /><domain name=\"MyFist\" com=\"n\" comscore=\"0\"
+        net=\"y\" netscore=\"1000\" tv=\"n\" tvscore=\"0\" cc=\"n\" ccscore=\"0\"
+        /><domain name=\"FistInc\" com=\"n\" comscore=\"0\" net=\"y\" netscore=\"1000\"
+        tv=\"n\" tvscore=\"0\" cc=\"n\" ccscore=\"0\" /><domain name=\"HandDesign\"
+        com=\"n\" comscore=\"0\" net=\"y\" netscore=\"1000\" tv=\"n\" tvscore=\"0\"
+        cc=\"n\" ccscore=\"0\" /><domain name=\"FreeFist\" com=\"n\" comscore=\"0\"
+        net=\"y\" netscore=\"1000\" tv=\"n\" tvscore=\"0\" cc=\"n\" ccscore=\"0\"
+        /><domain name=\"HoldInc\" com=\"n\" comscore=\"0\" net=\"y\" netscore=\"1000\"
+        tv=\"n\" tvscore=\"0\" cc=\"n\" ccscore=\"0\" /><domain name=\"HoldGroup\"
+        com=\"n\" comscore=\"0\" net=\"y\" netscore=\"1000\" tv=\"n\" tvscore=\"0\"
+        cc=\"n\" ccscore=\"0\" /><domain name=\"HandCompany\" com=\"n\" comscore=\"0\"
+        net=\"y\" netscore=\"1000\" tv=\"n\" tvscore=\"0\" cc=\"n\" ccscore=\"0\"
+        /></domains>\r\n</namespin>\r\n<originalsld><![CDATA[hand]]></originalsld>\r\n<Command>NAMESPINNER</Command>\r\n<APIType>API.NET</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>1</MinPeriod>\r\n<MaxPeriod>10</MaxPeriod>\r\n<Server>bra2vwrestest02</Server>\r\n<Site>eNom</Site>\r\n<IsLockable>True</IsLockable>\r\n<IsRealTimeTLD>True</IsRealTimeTLD>\r\n<TimeDifference>+8.00</TimeDifference>\r\n<ExecTime>0.375</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>8b2a4ad5-c450-4a4b-ac0b-5fcbb797cf36</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        1:03:24 PM</RequestDateTime>\r\n<debug/>\r\n</interface-response>"
+  recorded_at: Thu, 25 Aug 2022 17:03:24 GMT
+recorded_with: VCR 6.1.0
