@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=Check&IncludeEAP=1&IncludePrice=1&IncludeProperties=1&PW=resellpw&ResponseType=xml&SLD=foobarfoobarfoobar&TLD=adult&UID=resellid&Version=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Set-Cookie:
+      - ASP.NET_SessionId=besqu3pz1zvzz50c4itgwykv; path=/; HttpOnly; SameSite=Lax
+      Machinename:
+      - BRA2VWRESTEST01
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 17:56:45 GMT
+      Content-Length:
+      - '1590'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<Domains>\r\n
+        \ <Domain>\r\n    <Name>foobarfoobarfoobar.adult</Name>\r\n    <RRPCode>210</RRPCode>\r\n
+        \   <RRPText>Domain available</RRPText>\r\n    <IsPremium>True</IsPremium>\r\n
+        \   <IsPlatinum>False</IsPlatinum>\r\n    <IsEAP>False</IsEAP>\r\n    <Prices>\r\n
+        \     <Currency></Currency>\r\n      <Registration>86.00</Registration>\r\n
+        \     <Renewal>86.00</Renewal>\r\n      <Restore>250.00</Restore>\r\n      <Transfer>86.00</Transfer>\r\n
+        \     <ExpectedCustomerSuppliedPrice />\r\n    </Prices>\r\n    <Properties>\r\n
+        \     <NativeSLD></NativeSLD>\r\n      <MinRegYear>1</MinRegYear>\r\n      <MaxRegYear>10</MaxRegYear>\r\n
+        \     <AbleToLock>True</AbleToLock>\r\n      <ExtAttributes>False</ExtAttributes>\r\n
+        \     <Transferable>True</Transferable>\r\n      <AllowWPPS>True</AllowWPPS>\r\n
+        \     <TrademarkStart UTC=\"2015-06-04T13:00:00Z\" Epoch=\"1433408400\">6/4/2015
+        9:00:00 AM</TrademarkStart>\r\n      <TrademarkEnd UTC=\"2015-09-02T13:00:00Z\"
+        Epoch=\"1441184400\">9/2/2015 9:00:00 AM</TrademarkEnd>\r\n    </Properties>\r\n
+        \   <EAP />\r\n  </Domain>\r\n</Domains>\r\n<Command>CHECK</Command>\r\n<APIType>API.NET</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>1</MinPeriod>\r\n<MaxPeriod>10</MaxPeriod>\r\n<Server>bra2vwrestest01</Server>\r\n<Site>eNom</Site>\r\n<IsLockable/>\r\n<IsRealTimeTLD/>\r\n<TimeDifference>+0.00</TimeDifference>\r\n<ExecTime>0.882</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>9b65c983-0ae3-46a2-861b-42ae335d348e</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        1:56:45 PM</RequestDateTime>\r\n<debug/>\r\n</interface-response>"
+  recorded_at: Thu, 25 Aug 2022 17:56:45 GMT
+recorded_with: VCR 6.1.0

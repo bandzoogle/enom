@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=GetBalance&PW=resellpw&ResponseType=xml&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; Charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Machinename:
+      - BRA2VWRESTEST02
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 16:50:22 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<Reseller>1</Reseller>\r\n<Balance>42,613.10</Balance>\r\n<AvailableBalance>9,982,840.50</AvailableBalance>\r\n<Price>8.95</Price>\r\n<COMPrice>8.95</COMPrice>\r\n<NETPrice>9.00</NETPrice>\r\n<ORGPrice>9.00</ORGPrice>\r\n<CCPrice>24.95</CCPrice>\r\n<TVPrice>39.95</TVPrice>\r\n<BZPrice>24.95</BZPrice>\r\n<NUPrice>24.95</NUPrice>\r\n<DomainCount>9054</DomainCount>\r\n<Command>GETBALANCE</Command>\r\n<APIType>API</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>1</MinPeriod>\r\n<MaxPeriod>10</MaxPeriod>\r\n<Server>BRA2VWRESTEST02</Server>\r\n<Site>eNom</Site>\r\n<IsLockable>False</IsLockable>\r\n<IsRealTimeTLD>True</IsRealTimeTLD>\r\n<TimeDifference>+03.00</TimeDifference>\r\n<ExecTime>0.000</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>abb86d34-0219-4a7a-8e17-7a02eb12231e</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        12:50:22 PM</RequestDateTime>\r\n<debug><![CDATA[]]></debug>\r\n</interface-response>\r\n"
+  recorded_at: Thu, 25 Aug 2022 16:50:22 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=Check&PW=resellpw&ResponseType=xml&SLD=test123456test123456&TLD=*&TLDList&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Set-Cookie:
+      - ASP.NET_SessionId=uzc4ylhw1sdvluzyhzpw5fvk; path=/; HttpOnly; SameSite=Lax
+      Machinename:
+      - BRA2VWRESTEST02
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 17:03:23 GMT
+      Content-Length:
+      - '1200'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<Domain1>test123456test123456.com</Domain1>\r\n<RRPCode1>211</RRPCode1>\r\n<RRPText1>Domain
+        not available</RRPText1>\r\n<Domain2>test123456test123456.net</Domain2>\r\n<RRPCode2>210</RRPCode2>\r\n<RRPText2>Domain
+        available</RRPText2>\r\n<Domain3>test123456test123456.org</Domain3>\r\n<RRPCode3>210</RRPCode3>\r\n<RRPText3>Domain
+        available</RRPText3>\r\n<Domain4>test123456test123456.info</Domain4>\r\n<RRPCode4>210</RRPCode4>\r\n<RRPText4>Domain
+        available</RRPText4>\r\n<Domain5>test123456test123456.biz</Domain5>\r\n<RRPCode5>210</RRPCode5>\r\n<RRPText5>Domain
+        available</RRPText5>\r\n<DomainCount>5</DomainCount>\r\n<Command>CHECK</Command>\r\n<APIType>API.NET</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>0</MinPeriod>\r\n<MaxPeriod>0</MaxPeriod>\r\n<Server>bra2vwrestest02</Server>\r\n<Site>eNom</Site>\r\n<IsLockable>False</IsLockable>\r\n<IsRealTimeTLD>False</IsRealTimeTLD>\r\n<TimeDifference>+0.00</TimeDifference>\r\n<ExecTime>1.047</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>aff1a0b5-ecbb-48cd-b982-ec59c687422d</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        1:03:23 PM</RequestDateTime>\r\n<debug/>\r\n</interface-response>"
+  recorded_at: Thu, 25 Aug 2022 17:03:23 GMT
+recorded_with: VCR 6.1.0

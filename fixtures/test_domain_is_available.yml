@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=Check&PW=resellpw&ResponseType=xml&SLD=test123456test1234561111111111111111111&TLD=com&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Set-Cookie:
+      - ASP.NET_SessionId=32yugsziotoixrop4u0rai23; path=/; HttpOnly; SameSite=Lax
+      Machinename:
+      - BRA2VWRESTEST02
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 17:45:06 GMT
+      Content-Length:
+      - '745'
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<DomainName>test123456test1234561111111111111111111.com</DomainName>\r\n<RRPCode>210</RRPCode>\r\n<RRPText>Domain
+        available</RRPText>\r\n<Command>CHECK</Command>\r\n<APIType>API.NET</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>1</MinPeriod>\r\n<MaxPeriod>10</MaxPeriod>\r\n<Server>bra2vwrestest02</Server>\r\n<Site>eNom</Site>\r\n<IsLockable>True</IsLockable>\r\n<IsRealTimeTLD>True</IsRealTimeTLD>\r\n<TimeDifference>+8.00</TimeDifference>\r\n<ExecTime>0.672</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>3773aef8-2210-463e-90fb-53e245fe5102</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        1:45:06 PM</RequestDateTime>\r\n<debug/>\r\n</interface-response>"
+  recorded_at: Thu, 25 Aug 2022 17:45:06 GMT
+recorded_with: VCR 6.1.0

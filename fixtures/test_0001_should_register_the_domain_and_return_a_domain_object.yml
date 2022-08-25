@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=Purchase&PW=resellpw&ResponseType=xml&SLD=aaatest123456test123456789xxxxyyyyzzzz&TLD=com&UID=resellid&UseDNS=default
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; Charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Machinename:
+      - BRA2VWRESTEST02
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 17:32:49 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<OrderID>162752575</OrderID>\r\n<DomainInfo>\r\n<RegistryCreateDate>2022-08-25
+        17:32:48.000</RegistryCreateDate>\r\n<RegistryExpDate>2023-08-25 17:32:48.000</RegistryExpDate>\r\n</DomainInfo>\r\n<TotalCharged>8.95</TotalCharged>\r\n<RegistrantPartyID></RegistrantPartyID>\r\n<OrderStatus>Success</OrderStatus>\r\n<OrderDescription>Order
+        has completed</OrderDescription>\r\n<RRPCode>200</RRPCode>\r\n<RRPText>Command
+        completed successfully - 162752575</RRPText>\r\n<Contacts>\r\n<Registrant>\r\n<OrganizationName>fake
+        pty ltd</OrganizationName>\r\n<JobTitle>Data Protected</JobTitle>\r\n<FirstName>Data
+        Protected</FirstName>\r\n<LastName>Data Protected</LastName>\r\n<Address1>123
+        Data Protected</Address1>\r\n<Address2></Address2>\r\n<City>Kirkland</City>\r\n<StateProvince>AL</StateProvince>\r\n<PostalCode>98033</PostalCode>\r\n<Country>US</Country>\r\n<Phone>+39.046455555</Phone>\r\n<PhoneExt></PhoneExt>\r\n<Fax>+1.0000000000</Fax>\r\n<EmailAddress>noreply@data-protected.net</EmailAddress>\r\n<ConsentStatus>PENDING</ConsentStatus>\r\n</Registrant>\r\n<Admin>\r\n<OrganizationName>Data
+        Protected</OrganizationName>\r\n<JobTitle>Data Protected</JobTitle>\r\n<FirstName>Data
+        Protected</FirstName>\r\n<LastName>Data Protected</LastName>\r\n<Address1>123
+        Data Protected</Address1>\r\n<Address2></Address2>\r\n<City>Kirkland</City>\r\n<StateProvince>WA</StateProvince>\r\n<PostalCode>98033</PostalCode>\r\n<Country>US</Country>\r\n<Phone>+1.0000000000</Phone>\r\n<PhoneExt></PhoneExt>\r\n<Fax>+1.0000000000</Fax>\r\n<EmailAddress>noreply@data-protected.net</EmailAddress>\r\n</Admin>\r\n<Tech>\r\n<OrganizationName>Data
+        Protected</OrganizationName>\r\n<JobTitle>Data Protected</JobTitle>\r\n<FirstName>Data
+        Protected</FirstName>\r\n<LastName>Data Protected</LastName>\r\n<Address1>123
+        Data Protected</Address1>\r\n<Address2></Address2>\r\n<City>Kirkland</City>\r\n<StateProvince>WA</StateProvince>\r\n<PostalCode>98033</PostalCode>\r\n<Country>US</Country>\r\n<Phone>+1.0000000000</Phone>\r\n<PhoneExt></PhoneExt>\r\n<Fax>+1.0000000000</Fax>\r\n<EmailAddress>noreply@data-protected.net</EmailAddress>\r\n</Tech>\r\n<Billing>\r\n<OrganizationName>Data
+        Protected</OrganizationName>\r\n<JobTitle>Data Protected</JobTitle>\r\n<FirstName>Data
+        Protected</FirstName>\r\n<LastName>Data Protected</LastName>\r\n<Address1>123
+        Data Protected</Address1>\r\n<Address2></Address2>\r\n<City>Kirkland</City>\r\n<StateProvince>WA</StateProvince>\r\n<PostalCode>98033</PostalCode>\r\n<Country>US</Country>\r\n<Phone>+1.0000000000</Phone>\r\n<PhoneExt></PhoneExt>\r\n<Fax>+1.0000000000</Fax>\r\n<EmailAddress>noreply@data-protected.net</EmailAddress>\r\n</Billing>\r\n</Contacts>\r\n<Command>PURCHASE</Command>\r\n<APIType>API</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>1</MinPeriod>\r\n<MaxPeriod>10</MaxPeriod>\r\n<Server>BRA2VWRESTEST02</Server>\r\n<Site>eNom</Site>\r\n<IsLockable>True</IsLockable>\r\n<IsRealTimeTLD>True</IsRealTimeTLD>\r\n<TimeDifference>+08.00</TimeDifference>\r\n<ExecTime>0.000</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>ab46b2f2-56b3-435d-9178-477a1d324d19</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        1:32:49 PM</RequestDateTime>\r\n<debug><![CDATA[]]></debug>\r\n</interface-response>\r\n"
+  recorded_at: Thu, 25 Aug 2022 17:32:49 GMT
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=GetDomainInfo&PW=resellpw&ResponseType=xml&SLD=aaatest123456test123456789xxxxyyyyzzzz&TLD=com&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/xml; Charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      Machinename:
+      - BRA2VWRESTEST01
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 25 Aug 2022 17:32:50 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<GetDomainInfo>\r\n<domainname
+        sld=\"aaatest123456test123456789xxxxyyyyzzzz\" tld=\"com\" domainnameid=\"366533316\">aaatest123456test123456789xxxxyyyyzzzz.com</domainname>\r\n<multy-langSLD>\r\n</multy-langSLD>\r\n<status>\r\n<expiration>8/25/2023
+        5:32:00 PM</expiration>\r\n<deletebydate>8/25/2023 5:32:00 PM</deletebydate>\r\n<deletetype></deletetype>\r\n<restorable>True</restorable>\r\n<renewbeforeexpiration></renewbeforeexpiration>\r\n<registrar>eNom,
+        Inc.</registrar>\r\n<registrationstatus>Registered</registrationstatus>\r\n<purchase-status>Paid</purchase-status>\r\n<belongs-to
+        party-id=\"{BB4A2DE1-6485-45CB-A4FC-EE39BA0C1629}\">resellid</belongs-to>\r\n<escrowhold></escrowhold>\r\n<escrowliftdate></escrowliftdate>\r\n<auctionhold>False</auctionhold>\r\n<auctionliftdate></auctionliftdate>\r\n</status>\r\n<ParkingEnabled>False</ParkingEnabled>\r\n<services><entry
+        name=\"dnsserver\"><enomDNS value=\"YES\" isDotName=\"NO\" /><service changable=\"1\">1006</service><configuration
+        changable=\"0\" type=\"dns\"><dns>dns1.name-services.com</dns><dns>dns2.name-services.com</dns><dns>dns3.name-services.com</dns><dns>dns4.name-services.com</dns><dns>dns5.name-services.com</dns></configuration></entry><entry
+        name=\"dnssettings\"><service changable=\"0\">1021</service><configuration
+        changable=\"1\" type=\"host\"><host><name><![CDATA[*]]></name><type><![CDATA[A]]></type><address><![CDATA[85.92.87.179]]></address><mxpref><![CDATA[10]]></mxpref><iseditable><![CDATA[1]]></iseditable></host><host><name><![CDATA[@]]></name><type><![CDATA[A]]></type><address><![CDATA[85.92.87.178]]></address><mxpref><![CDATA[10]]></mxpref><iseditable><![CDATA[1]]></iseditable></host><host><name><![CDATA[www]]></name><type><![CDATA[A]]></type><address><![CDATA[85.92.87.180]]></address><mxpref><![CDATA[10]]></mxpref><iseditable><![CDATA[1]]></iseditable></host></configuration></entry><entry
+        name=\"wsb\"><service changable=\"1\">1060</service></entry><entry name=\"emailset\"><service
+        changable=\"1\">1048</service></entry><entry name=\"wpps\"><service changable=\"1\">1123</service></entry><entry
+        name=\"wbl\"><wbl><statusid><![CDATA[0]]></statusid><statusdescr><![CDATA[Available]]></statusdescr></wbl></entry><entry
+        name=\"mobilizer\"><service changable=\"0\">1117</service><mobilizer /></entry><entry
+        name=\"parking\"><service changable=\"1\">1030</service></entry><entry name=\"messaging\"><service
+        changable=\"1\">1087</service></entry><entry name=\"map\"><service changable=\"1\">1108</service></entry><entry
+        name=\"raasettings\" ></entry><entry name=\"irtpsettings\"><irtpsetting><icanncompliant>True</icanncompliant><optout>True</optout><transferlock>False</transferlock><transferlockexpdate
+        /></irtpsetting></entry><entry name=\"portalsettings\"><service changable=\"1\"></service></entry><entry
+        name=\"whoispublicity\"><service changable=\"1\"></service><whoispublicity><vasitemid></vasitemid><enabled>False</enabled></whoispublicity></entry></services></GetDomainInfo>\r\n<Command>GETDOMAININFO</Command>\r\n<APIType>API</APIType>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<MinPeriod>1</MinPeriod>\r\n<MaxPeriod>10</MaxPeriod>\r\n<Server>BRA2VWRESTEST01</Server>\r\n<Site>eNom</Site>\r\n<IsLockable>True</IsLockable>\r\n<IsRealTimeTLD>True</IsRealTimeTLD>\r\n<TimeDifference>+08.00</TimeDifference>\r\n<ExecTime>0.000</ExecTime>\r\n<Done>true</Done>\r\n<TrackingKey>3fa3804f-11f0-44ef-a1c8-007520d18556</TrackingKey>\r\n<RequestDateTime>8/25/2022
+        1:32:50 PM</RequestDateTime>\r\n<debug><![CDATA[]]></debug>\r\n</interface-response>\r\n"
+  recorded_at: Thu, 25 Aug 2022 17:32:49 GMT
+recorded_with: VCR 6.1.0
