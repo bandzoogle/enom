@@ -60,7 +60,7 @@ describe Enom::Domain do
       end
       it 'should return premium data for premium domain' do
         VCR.use_cassette(__method__) do
-          result = Enom::Domain.check_details('foo.store')
+          result = Enom::Domain.check_details('foobarfoobarfoobar.adult')
           assert_equal true, result['available']
           assert_equal true, result['IsPremium']
         end
@@ -98,17 +98,7 @@ describe Enom::Domain do
           @suggestions = Enom::Domain.suggest('hand.com', tlds: %w[com net])
           assert !@suggestions.empty?
 
-          results = %w[
-            handsewncurtains.net
-            handicappingclub.net
-            handingok.com
-            handingok.net
-            handoki.net
-            handinghand.com
-            handinghand.net
-            handcrafthouselogs.com
-            handcrafthouselogs.net
-          ]
+          results = ["shophand.net", "myfist.net", "fistinc.net", "handdesign.net", "freefist.net", "holdinc.net", "holdgroup.net", "handcompany.net"]
 
           puts "2========================== #{@suggestions.inspect}"
           assert_equal results, @suggestions
@@ -235,6 +225,7 @@ describe Enom::Domain do
       it 'should be locked' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.find('test123456test123456789.com')
+          @domain.lock rescue nil
 
           assert @domain.locked?
           assert !@domain.unlocked?
@@ -258,7 +249,8 @@ describe Enom::Domain do
         end
         it 'should update nameservers if there are 2 or more provided' do
           VCR.use_cassette(__method__) do
-            new_nameservers = ['ns1.foo.com', 'ns2.foo.com']
+            new_nameservers = ['dns1.name-services.com',
+            'dns2.name-services.com']
 
             @domain = Enom::Domain.find('test123456test123456789.com')
             @domain.update_nameservers(new_nameservers)
@@ -288,7 +280,7 @@ describe Enom::Domain do
           @domain = Enom::Domain.find('test123456test123456789.com')
 
           assert_kind_of Date, @domain.expiration_date
-          assert_equal '2012-01-30', @domain.expiration_date.strftime('%Y-%m-%d')
+          assert_equal '2023-08-25', @domain.expiration_date.strftime('%Y-%m-%d')
         end
       end
 
