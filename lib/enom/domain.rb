@@ -130,14 +130,16 @@ module Enom
 
       while finished == false
         opts['Start'] = index
-        puts opts.inspect
-        @response = Client.request({ 'Command' => 'GetDomains' }.merge(opts))['interface_response']
+        @response = Enom::Client.request({ 'Command' => 'GetDomains' }.merge(opts))['interface_response']
         list = @response['GetDomains']['domain_list']['domain']
-        list.each { |d| domains << Domain.new(d) }
+        list.each do |d|
+          domain = Enom::Domain.new(d)
+          yield(domain) if block_given?
+          domains << domain
+        end
 
         index = @response['GetDomains']['NextRecords'].to_i
-
-        finished = true if list.empty? || domains.count > limit
+        finished = true if list.empty? || index == 0 || domains.count > limit
       end
 
       domains

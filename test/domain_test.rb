@@ -11,20 +11,37 @@ describe Enom::Domain do
     context 'listing all domains' do
       before do
         Enom::Client.test = true
-        @domains = Enom::Domain.all('limit' => 25, 'Display' => 10)
       end
 
       it 'should return several domain objects' do
         VCR.use_cassette(__method__) do
+          @domains = Enom::Domain.all('limit' => 25, 'Display' => 10)
           @domains.each do |domain|
             assert_kind_of Enom::Domain, domain
           end
         end
       end
+
       it 'should return a bunch of domains' do
         VCR.use_cassette(__method__) do
+          @domains = Enom::Domain.all('limit' => 25, 'Display' => 10)
           assert_equal 30, @domains.size
         end
+      end
+
+      it 'accepts a block' do
+        VCR.use_cassette(__method__) do
+          @count = 0
+          @domain = nil
+
+          @domains = Enom::Domain.all('limit' => 25, 'Display' => 10) do |result|
+            @domain = result
+            @count = @count + 1
+          end
+          assert_equal 30, @count
+          assert_kind_of Enom::Domain, @domain
+        end
+
       end
     end
 
