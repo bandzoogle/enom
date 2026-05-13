@@ -179,24 +179,19 @@ describe Enom::Domain do
     end
 
     context 'sync_auth_info for domain' do
-      before do
-        @domain = Enom::Domain.find('17feb2020.com')
-        @result = @domain.sync_auth_info
-      end
-
       it 'should return the domain' do
         VCR.use_cassette(__method__) do
+          @domain = Enom::Domain.find('17feb2020.com')
+          @result = @domain.sync_auth_info
           assert @result
         end
       end
     end
 
     context 'transfer a domain' do
-      before do
-        @result = Enom::Domain.transfer!('resellerdocs2.net', 'ros8enQi')
-      end
       it 'should transfer the domain and return true if successful' do
         VCR.use_cassette(__method__) do
+          @result = Enom::Domain.transfer!('resellerdocs2.net', 'ros8enQi')
           assert @result
         end
       end

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
                LICENSE] + ['lib/enom.rb'] + Dir.glob('lib/enom/*.rb') + Dir.glob('lib/enom/commands/*.rb') + Dir.glob('test/**/*') + Dir.glob('bin/*')
   s.add_dependency 'multi_xml'
   s.add_dependency 'public_suffix', '~> 5.0.0'
-  s.add_development_dependency 'minitest', '~> 5.14.0'
+  s.add_development_dependency 'minitest', '~> 5.25'
   s.add_development_dependency 'minitest-spec-context'
   s.add_development_dependency 'shoulda'
 

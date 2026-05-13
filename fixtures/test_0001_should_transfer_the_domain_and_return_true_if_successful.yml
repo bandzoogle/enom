@@ -1,0 +1,27 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?AuthInfo1=ros8enQi&Command=TP_CreateOrder&DomainCount=1&OrderType=AutoVerification&PW=resellpw&ResponseType=xml&SLD1=resellerdocs2&TLD1=net&UID=resellid&UseContacts=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; Charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<Command>TP_CREATEORDER</Command>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<Done>true</Done>\r\n</interface-response>\r\n"
+  recorded_at: Wed, 13 May 2026 12:00:02 GMT
+recorded_with: VCR 6.3.1

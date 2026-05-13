@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=GetDomains&Display=10&PW=resellpw&ResponseType=xml&Start=1&Tab=IOwn&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; Charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<GetDomains>\r\n<DomainCount>30</DomainCount>\r\n<domain_list>\r\n<domain><DomainName>testdomain1.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain2.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain3.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain4.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain5.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain6.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain7.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain8.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain9.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain10.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n</domain_list>\r\n<NextRecords>11</NextRecords>\r\n</GetDomains>\r\n<Command>GETDOMAINS</Command>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<Done>true</Done>\r\n</interface-response>\r\n"
+  recorded_at: Wed, 13 May 2026 12:00:00 GMT
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=GetDomains&Display=10&PW=resellpw&ResponseType=xml&Start=11&Tab=IOwn&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; Charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<GetDomains>\r\n<DomainCount>30</DomainCount>\r\n<domain_list>\r\n<domain><DomainName>testdomain11.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain12.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain13.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain14.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain15.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain16.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain17.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain18.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain19.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain20.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n</domain_list>\r\n<NextRecords>21</NextRecords>\r\n</GetDomains>\r\n<Command>GETDOMAINS</Command>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<Done>true</Done>\r\n</interface-response>\r\n"
+  recorded_at: Wed, 13 May 2026 12:00:01 GMT
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=GetDomains&Display=10&PW=resellpw&ResponseType=xml&Start=21&Tab=IOwn&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; Charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<GetDomains>\r\n<DomainCount>30</DomainCount>\r\n<domain_list>\r\n<domain><DomainName>testdomain21.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain22.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain23.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain24.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain25.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain26.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain27.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain28.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain29.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n<domain><DomainName>testdomain30.com</DomainName><expiration_date>8/25/2026
+        5:00:00 PM</expiration_date></domain>\r\n</domain_list>\r\n<NextRecords>0</NextRecords>\r\n</GetDomains>\r\n<Command>GETDOMAINS</Command>\r\n<Language>eng</Language>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<Done>true</Done>\r\n</interface-response>\r\n"
+  recorded_at: Wed, 13 May 2026 12:00:02 GMT
+recorded_with: VCR 6.3.1
