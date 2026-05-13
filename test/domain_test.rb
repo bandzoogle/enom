@@ -8,7 +8,7 @@ describe Enom::Domain do
       Enom::Client.test = true
     end
 
-    describe'listing all domains' do
+    describe 'listing all domains' do
       before do
         Enom::Client.test = true
       end
@@ -36,16 +36,15 @@ describe Enom::Domain do
 
           @domains = Enom::Domain.all('limit' => 25, 'Display' => 10) do |result|
             @domain = result
-            @count = @count + 1
+            @count += 1
           end
           assert_equal 30, @count
           assert_kind_of Enom::Domain, @domain
         end
-
       end
     end
 
-    describe'available?' do
+    describe 'available?' do
       it "should return 'available' for an available domain" do
         VCR.use_cassette(__method__) do
           assert_equal 'available', Enom::Domain.check('test123456test123456xyzzy.com')
@@ -60,7 +59,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'check_details' do
+    describe 'check_details' do
       it 'should return data for available domain' do
         VCR.use_cassette(__method__) do
           result = Enom::Domain.check_details('test123456test123456xyzzy.com')
@@ -84,7 +83,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'checking multiple TLDs for a single domain' do
+    describe 'checking multiple TLDs for a single domain' do
       it 'should return an array of available domains with the provided TLD' do
         wildcard_tld_domains = ['test123456test123456.biz', 'test123456test123456.info', 'test123456test123456.net',
                                 'test123456test123456.org']
@@ -95,7 +94,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'checking for suggested domains' do
+    describe 'checking for suggested domains' do
       it 'should return an array of suggestions matching the supplied term' do
         VCR.use_cassette(__method__) do
           @suggestions = Enom::Domain.suggest('hand.com')
@@ -113,14 +112,15 @@ describe Enom::Domain do
           @suggestions = Enom::Domain.suggest('hand.com', tlds: %w[com net])
           assert !@suggestions.empty?
 
-          results = ["shophand.net", "myfist.net", "fistinc.net", "handdesign.net", "freefist.net", "holdinc.net", "holdgroup.net", "handcompany.net"]
+          results = ['shophand.net', 'myfist.net', 'fistinc.net', 'handdesign.net', 'freefist.net', 'holdinc.net',
+                     'holdgroup.net', 'handcompany.net']
 
           assert_equal results, @suggestions
         end
       end
     end
 
-    describe'registering a domain' do
+    describe 'registering a domain' do
       it 'should register the domain and return a domain object' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.register!('aaatest123456test123456789xxxxyyyyzzzz.com')
@@ -130,7 +130,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'registering a .rocks domain' do
+    describe 'registering a .rocks domain' do
       # before do
       #   @domain = Enom::Domain.register!("test123456test123456789.rocks")
       # end
@@ -142,7 +142,7 @@ describe Enom::Domain do
       # end
     end
 
-    describe'registering a domain with some options' do
+    describe 'registering a domain with some options' do
       it 'should pass opts along' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.register!('elephanttest123456test123456789abc.com',
@@ -163,7 +163,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'deleting a domain' do
+    describe 'deleting a domain' do
       before do
         @result = Enom::Domain.delete!('resellerdocs3.com')
       end
@@ -175,7 +175,7 @@ describe Enom::Domain do
       # end
     end
 
-    describe'sync_auth_info for domain' do
+    describe 'sync_auth_info for domain' do
       it 'should return the domain' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.find('17feb2020.com')
@@ -185,7 +185,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'transfer a domain' do
+    describe 'transfer a domain' do
       it 'should transfer the domain and return true if successful' do
         VCR.use_cassette(__method__) do
           @result = Enom::Domain.transfer!('resellerdocs2.net', 'ros8enQi')
@@ -194,7 +194,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'renewing a domain' do
+    describe 'renewing a domain' do
       it 'should renew the domain and return a domain object' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.renew!('test123456test123456789abc.com')
@@ -204,7 +204,7 @@ describe Enom::Domain do
       end
     end
 
-    describe'finding a domain in your account' do
+    describe 'finding a domain in your account' do
       it 'should return a domain object' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.find('test123456test123456789.com')
@@ -234,14 +234,18 @@ describe Enom::Domain do
       it 'should be locked' do
         VCR.use_cassette(__method__) do
           @domain = Enom::Domain.find('test123456test123456789.com')
-          @domain.lock rescue nil
+          begin
+            @domain.lock
+          rescue StandardError
+            nil
+          end
 
           assert @domain.locked?
           assert !@domain.unlocked?
         end
       end
 
-      describe'with default nameservers' do
+      describe 'with default nameservers' do
         it 'should have default Enom nameservers' do
           VCR.use_cassette(__method__) do
             nameservers = [
@@ -259,7 +263,7 @@ describe Enom::Domain do
         it 'should update nameservers if there are 2 or more provided' do
           VCR.use_cassette(__method__) do
             new_nameservers = ['dns1.name-services.com',
-            'dns2.name-services.com']
+                               'dns2.name-services.com']
 
             @domain = Enom::Domain.find('test123456test123456789.com')
             @domain.update_nameservers(new_nameservers)
@@ -293,7 +297,7 @@ describe Enom::Domain do
         end
       end
 
-      describe'that is currently locked' do
+      describe 'that is currently locked' do
         it 'should unlock successfully' do
           VCR.use_cassette(__method__) do
             @domain = Enom::Domain.find('test123456test123456789.com')

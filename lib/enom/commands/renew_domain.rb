@@ -1,11 +1,10 @@
 module Enom
   module Commands
     class RenewDomain
-      def execute(args, options={})
+      def execute(args, _options = {})
         name = args.shift
         domain = Domain.renew!(name)
-        output = "Renewed #{domain.name}"
-        return output
+        "Renewed #{domain.name}"
       end
     end
   end

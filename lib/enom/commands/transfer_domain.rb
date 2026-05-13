@@ -1,13 +1,13 @@
 module Enom
   module Commands
     class TransferDomain
-      def execute(args, options={})
+      def execute(args, _options = {})
         name      = args.shift
         auth_code = args.shift
         Domain.transfer!(name, auth_code)
-        output    = "Transferred #{name}"
+        output = "Transferred #{name}"
         puts output
-        return output
+        output
       end
     end
   end

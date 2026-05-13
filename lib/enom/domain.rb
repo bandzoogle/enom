@@ -286,17 +286,15 @@ module Enom
     def update_nameservers(nameservers = [])
       count = 1
       ns = {}
-      if (2..12).include?(nameservers.size)
-        nameservers.each do |nameserver|
-          ns.merge!("NS#{count}" => nameserver)
-          count += 1
-        end
-        Client.request({ 'Command' => 'ModifyNS', 'SLD' => sld, 'TLD' => tld }.merge(ns))
-        @nameservers = ns.values
-        self
-      else
-        raise InvalidNameServerCount
+      raise InvalidNameServerCount unless (2..12).include?(nameservers.size)
+
+      nameservers.each do |nameserver|
+        ns.merge!("NS#{count}" => nameserver)
+        count += 1
       end
+      Client.request({ 'Command' => 'ModifyNS', 'SLD' => sld, 'TLD' => tld }.merge(ns))
+      @nameservers = ns.values
+      self
     end
 
     def expiration_date
