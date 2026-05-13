@@ -1,5 +1,5 @@
 module Enom
-  require 'net/https'
+  require 'net/http'
   require 'multi_xml'
 
   class Client

@@ -1,7 +1,7 @@
-require File.expand_path('../enom/client',  __FILE__)
-require File.expand_path('../enom/contact_info',   __FILE__)
-require File.expand_path('../enom/domain',  __FILE__)
-require File.expand_path('../enom/account', __FILE__)
-require File.expand_path('../enom/error',   __FILE__)
+require_relative 'enom/client'
+require_relative 'enom/contact_info'
+require_relative 'enom/domain'
+require_relative 'enom/account'
+require_relative 'enom/error'
 
 module Enom; end

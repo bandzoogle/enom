@@ -1,5 +1,4 @@
 require 'public_suffix'
-require 'pry'
 
 module Enom
   class Domain
@@ -14,9 +13,6 @@ module Enom
     attr_reader :response
 
     def initialize(attributes)
-      puts attributes.inspect
-      binding.pry if attributes.is_a?(Enom::Domain)
-
       #
       # use __content__ to get domainname if needed
       # @see https://github.com/sferik/multi_xml/pull/27

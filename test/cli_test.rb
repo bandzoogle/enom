@@ -1,5 +1,5 @@
 require 'test_helper'
-require File.expand_path('../lib/enom/cli', __dir__)
+require_relative '../lib/enom/cli'
 
 class CliTest < Minitest::Test
   def setup

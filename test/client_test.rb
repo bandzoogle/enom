@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe Enom::Client do
-  context "A test connection" do
+  describe"A test connection" do
     before do
       Enom::Client.username = "resellidtest"
       Enom::Client.password = "resellpwtest"
@@ -16,7 +16,7 @@ describe Enom::Client do
     end
   end
 
-  context "A live connection" do
+  describe"A live connection" do
     before do
       Enom::Client.username = "resellid"
       Enom::Client.password = "resellpw"
