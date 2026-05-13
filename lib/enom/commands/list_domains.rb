@@ -1,7 +1,7 @@
 module Enom
   module Commands
     class ListDomains
-      def execute(args, options = {})
+      def execute(_args, _options = {})
         domains = Domain.all
         puts "Found #{domains.length} domains:"
         domains.each do |domain|

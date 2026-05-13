@@ -1,5 +1,4 @@
 require 'public_suffix'
-require 'pry'
 
 module Enom
   class Domain
@@ -14,9 +13,6 @@ module Enom
     attr_reader :response
 
     def initialize(attributes)
-      puts attributes.inspect
-      binding.pry if attributes.is_a?(Enom::Domain)
-
       #
       # use __content__ to get domainname if needed
       # @see https://github.com/sferik/multi_xml/pull/27
@@ -290,17 +286,15 @@ module Enom
     def update_nameservers(nameservers = [])
       count = 1
       ns = {}
-      if (2..12).include?(nameservers.size)
-        nameservers.each do |nameserver|
-          ns.merge!("NS#{count}" => nameserver)
-          count += 1
-        end
-        Client.request({ 'Command' => 'ModifyNS', 'SLD' => sld, 'TLD' => tld }.merge(ns))
-        @nameservers = ns.values
-        self
-      else
-        raise InvalidNameServerCount
+      raise InvalidNameServerCount unless (2..12).include?(nameservers.size)
+
+      nameservers.each do |nameserver|
+        ns.merge!("NS#{count}" => nameserver)
+        count += 1
       end
+      Client.request({ 'Command' => 'ModifyNS', 'SLD' => sld, 'TLD' => tld }.merge(ns))
+      @nameservers = ns.values
+      self
     end
 
     def expiration_date

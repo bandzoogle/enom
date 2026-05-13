@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=GetDomainInfo&PW=resellpw&ResponseType=xml&SLD=17feb2020&TLD=com&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; Charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<GetDomainInfo>\r\n<domainname
+        sld=\"17feb2020\" tld=\"com\" domainnameid=\"123456789\">17feb2020.com</domainname>\r\n<status>\r\n<expiration>8/25/2026
+        5:00:00 PM</expiration>\r\n<registrationstatus>Registered</registrationstatus>\r\n</status>\r\n</GetDomainInfo>\r\n<Command>GETDOMAININFO</Command>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<Done>true</Done>\r\n</interface-response>\r\n"
+  recorded_at: Wed, 13 May 2026 12:00:00 GMT
+- request:
+    method: get
+    uri: https://resellertest.enom.com/interface.asp?Command=SynchAuthInfo&EmailEPP=True&PW=resellpw&ResponseType=xml&RunSynchAutoInfo=True&SLD=17feb2020&TLD=com&UID=resellid
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/xml; Charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<interface-response>\r\n<Command>SYNCHAUTHINFO</Command>\r\n<ErrCount>0</ErrCount>\r\n<ResponseCount>0</ResponseCount>\r\n<Done>true</Done>\r\n</interface-response>\r\n"
+  recorded_at: Wed, 13 May 2026 12:00:01 GMT
+recorded_with: VCR 6.3.1

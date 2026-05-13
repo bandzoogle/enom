@@ -1,23 +1,23 @@
 module Enom
-  require 'net/https'
+  require 'net/http'
   require 'multi_xml'
 
   class Client
     class << self
       attr_accessor :username, :password, :test, :debug
-      alias_method :test?, :test
-      alias_method :debug?, :debug
+      alias test? test
+      alias debug? debug
 
       # All requests must contain the UID, PW, and ResponseType query parameters
       def default_params
-        { "UID" => self.username, "PW" => self.password, "ResponseType" => "xml"}
+        { 'UID' => username, 'PW' => password, 'ResponseType' => 'xml' }
       end
 
       # Enom has a test platform and a production platform.  Both are configured to use
       # HTTPS at all times. Don"t forget to configure permitted IPs (in both environments)
       # or you"ll get InterfaceErrors.
       def base_uri
-        @base_uri = test? ? "https://resellertest.enom.com/interface.asp" : "https://reseller.enom.com/interface.asp"
+        @base_uri = test? ? 'https://resellertest.enom.com/interface.asp' : 'https://reseller.enom.com/interface.asp'
       end
 
       # All requests to Enom are GET requests, even when we"re changing data.  Unfortunately,
@@ -31,31 +31,29 @@ module Enom
         http.use_ssl = true
 
         encoded = URI.encode_www_form(params)
-        path = [uri.path, encoded].join("?")
+        path = [uri.path, encoded].join('?')
 
         request = Net::HTTP::Get.new(path)
 
-        STDERR.puts path if debug?
+        warn path if debug?
 
-        response = http.request(request) 
+        response = http.request(request)
 
         case response.code.to_i
         when 200
-          STDERR.puts response.body if debug?
+          warn response.body if debug?
 
           response = MultiXml.parse(response.body)
-          if response["interface_response"]["ErrCount"].to_i == 0
-            return response
-          else
-            raise InterfaceError, response["interface_response"]["errors"].values.join(", ")
-          end
+          return response if response['interface_response']['ErrCount'].to_i == 0
+
+          raise InterfaceError, response['interface_response']['errors'].values.join(', ')
+
         end
       end
 
-      def get(params={})
+      def get(params = {})
         request(params)
       end
-
     end
   end
 end

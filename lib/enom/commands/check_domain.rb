@@ -1,11 +1,10 @@
 module Enom
   module Commands
     class CheckDomain
-      def execute(args, options={})
+      def execute(args, _options = {})
         name = args.shift
         response = Domain.check(name)
-        output = "#{name} is #{response}"
-        return output
+        "#{name} is #{response}"
       end
     end
   end

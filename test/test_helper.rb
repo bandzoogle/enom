@@ -1,10 +1,7 @@
-require 'rubygems'
-require 'shoulda'
 require 'minitest/autorun'
-require 'minitest-spec-context'
 require 'vcr'
 
-require File.expand_path('../lib/enom', __dir__)
+require_relative '../lib/enom'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'fixtures'
